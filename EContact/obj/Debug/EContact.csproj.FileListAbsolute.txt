@@ -1,0 +1,9 @@
+F:\C# projects\EContact\EContact\bin\Debug\EContact.exe.config
+F:\C# projects\EContact\EContact\bin\Debug\EContact.exe
+F:\C# projects\EContact\EContact\bin\Debug\EContact.pdb
+F:\C# projects\EContact\EContact\obj\Debug\EContact.csprojResolveAssemblyReference.cache
+F:\C# projects\EContact\EContact\obj\Debug\EContact.EContact.resources
+F:\C# projects\EContact\EContact\obj\Debug\EContact.Properties.Resources.resources
+F:\C# projects\EContact\EContact\obj\Debug\EContact.csproj.GenerateResource.Cache
+F:\C# projects\EContact\EContact\obj\Debug\EContact.exe
+F:\C# projects\EContact\EContact\obj\Debug\EContact.pdb
