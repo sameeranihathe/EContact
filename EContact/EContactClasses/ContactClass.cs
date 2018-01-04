@@ -136,39 +136,39 @@ namespace EContact.EContactClasses
         }  
   
         //DELETE FROM DB
-        public bool Delete(ContactClass c)
-        {
-            bool isSuccess = false;
-            SqlConnection conn = new SqlConnection(myconnstring);
-            try
-            {
-                string sql = "DELETE FROM tbl_contact WHERE ContactID =@ContactId";
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@ContactID", c.ContactID);
-                conn.Open();
-                int rows = cmd.ExecuteNonQuery();
+        //public bool Delete(ContactClass c)
+        //{
+        //    bool isSuccess = false;
+        //    SqlConnection conn = new SqlConnection(myconnstring);
+        //    try
+        //    {
+        //        string sql = "DELETE FROM tbl_contact WHERE ContactID =@ContactId";
+        //        SqlCommand cmd = new SqlCommand(sql, conn);
+        //        cmd.Parameters.AddWithValue("@ContactID", c.ContactID);
+        //        conn.Open();
+        //        int rows = cmd.ExecuteNonQuery();
 
-               if (rows>0)
-	           {
-		            isSuccess = true;
-	           }
-               else
-               {
-                   isSuccess = false;
-               }
-            }
-            catch (Exception ex)
-            {
+        //       if (rows>0)
+        //       {
+        //            isSuccess = true;
+        //       }
+        //       else
+        //       {
+        //           isSuccess = false;
+        //       }
+        //    }
+        //    catch (Exception ex)
+        //    {
                 
                 
-            }
-            finally
-            {
-                conn.Close();
-            }
+        //    }
+        //    finally
+        //    {
+        //        conn.Close();
+        //    }
 
-            return isSuccess;
-        }
+        //    return isSuccess;
+        //}
 
     }
 
