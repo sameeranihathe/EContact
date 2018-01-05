@@ -104,7 +104,7 @@ namespace EContact.EContactClasses
 
                 //parameters
                 cmd.Parameters.AddWithValue("@FirstName", c.FirstName);
-                cmd.Parameters.AddWithValue("@FLastName", c.LastName);
+                cmd.Parameters.AddWithValue("@LastName", c.LastName);
                 cmd.Parameters.AddWithValue("@ContactNo", c.ContactNo);
                 cmd.Parameters.AddWithValue("@Address", c.Address);
                 cmd.Parameters.AddWithValue("@Gendar", c.Gendar);
