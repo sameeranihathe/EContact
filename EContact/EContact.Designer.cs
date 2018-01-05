@@ -209,6 +209,7 @@
             this.btn_delete.TabIndex = 18;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_update
             // 
@@ -234,6 +235,7 @@
             this.btn_clear.TabIndex = 20;
             this.btn_clear.Text = "Clear";
             this.btn_clear.UseVisualStyleBackColor = false;
+            this.btn_clear.Click += new System.EventHandler(this.btn_clear_Click);
             // 
             // dataGridView
             // 
@@ -263,6 +265,7 @@
             this.txt_box_search.Name = "txt_box_search";
             this.txt_box_search.Size = new System.Drawing.Size(293, 30);
             this.txt_box_search.TabIndex = 23;
+            this.txt_box_search.TextChanged += new System.EventHandler(this.txt_box_search_TextChanged);
             // 
             // pictureBox1
             // 

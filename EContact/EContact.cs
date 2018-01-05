@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -43,6 +45,15 @@ namespace EContact
         {
 
         }
+        public void Clear()
+        {
+            txt_box_contact_id.Text = "";
+            txt_box_first_name.Text = "";
+            txt_box_last_name.Text = "";
+            txt_box_address.Text = "";
+            txt_box_contact_no.Text = "";
+            cmb_box_gendar.Text = "";
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -55,6 +66,7 @@ namespace EContact
             if (success == true)
             {
                 MessageBox.Show("New Contact Successfully Inserted");
+                Clear();
             }
             else
             {
@@ -110,12 +122,59 @@ namespace EContact
                 dataGridView.DataSource = dt;
 
                 //clear data
-                
+                Clear();
+               
             }
             else
             {
                 MessageBox.Show("Failed to update contact.");
             }
         }
+
+        private void btn_clear_Click(object sender, EventArgs e)
+        {
+            Clear();
+           
+
+            
+            
+        }
+
+        private void btn_delete_Click(object sender, EventArgs e)
+        {
+            c.ContactID = Convert.ToInt32(txt_box_contact_id.Text);
+           // c.ContactID = int.Parse(txt_box_contact_id.Text);
+            bool success = c.Delete(c);
+
+            if (success== true)
+            {
+                MessageBox.Show("Contact succesfully deleted.");
+                //load data on gridview
+                DataTable dt = c.Select();
+                dataGridView.DataSource = dt;
+
+                Clear();
+                
+            }
+            else
+            {
+                MessageBox.Show("Failed to Delete Contact. Try again.");
+            }
+        }
+        static string myconnstring = ConfigurationManager.ConnectionStrings["conn_string"].ConnectionString;
+
+        private void txt_box_search_TextChanged(object sender, EventArgs e)
+        {
+            //get the value from textbox
+            string keyword = txt_box_search.Text;
+            SqlConnection conn = new SqlConnection(myconnstring);
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM tbl_contact WHERE FirstName LIKE '%" + keyword + "%' OR LastName LIKE '%" + keyword + "%' OR Address LIKE '%" + keyword + "%'",conn);
+            DataTable dt = new DataTable();
+            sda.Fill(dt);
+            dataGridView.DataSource = dt;
+
+        }
+
+        
     }
 }

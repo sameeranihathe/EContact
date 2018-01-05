@@ -104,7 +104,7 @@ namespace EContact.EContactClasses
 
                 //parameters
                 cmd.Parameters.AddWithValue("@FirstName", c.FirstName);
-                cmd.Parameters.AddWithValue("@FLastName", c.LastName);
+                cmd.Parameters.AddWithValue("@LastName", c.LastName);
                 cmd.Parameters.AddWithValue("@ContactNo", c.ContactNo);
                 cmd.Parameters.AddWithValue("@Address", c.Address);
                 cmd.Parameters.AddWithValue("@Gendar", c.Gendar);
@@ -136,39 +136,39 @@ namespace EContact.EContactClasses
         }  
   
         //DELETE FROM DB
-        //public bool Delete(ContactClass c)
-        //{
-        //    bool isSuccess = false;
-        //    SqlConnection conn = new SqlConnection(myconnstring);
-        //    try
-        //    {
-        //        string sql = "DELETE FROM tbl_contact WHERE ContactID =@ContactId";
-        //        SqlCommand cmd = new SqlCommand(sql, conn);
-        //        cmd.Parameters.AddWithValue("@ContactID", c.ContactID);
-        //        conn.Open();
-        //        int rows = cmd.ExecuteNonQuery();
+        public bool Delete(ContactClass c)
+        {
+            bool isSuccess = false;
+            SqlConnection conn = new SqlConnection(myconnstring);
+            try
+            {
+                string sql = "DELETE FROM tbl_contact WHERE ContactID =@ContactId";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@ContactID", c.ContactID);
+                conn.Open();
+                int rows = cmd.ExecuteNonQuery();
 
-        //       if (rows>0)
-        //       {
-        //            isSuccess = true;
-        //       }
-        //       else
-        //       {
-        //           isSuccess = false;
-        //       }
-        //    }
-        //    catch (Exception ex)
-        //    {
+               if (rows>0)
+	           {
+		            isSuccess = true;
+	           }
+               else
+               {
+                   isSuccess = false;
+               }
+            }
+            catch (Exception ex)
+            {
                 
                 
-        //    }
-        //    finally
-        //    {
-        //        conn.Close();
-        //    }
+            }
+            finally
+            {
+                conn.Close();
+            }
 
-        //    return isSuccess;
-        //}
+            return isSuccess;
+        }
 
     }
 
